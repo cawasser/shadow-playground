@@ -26,7 +26,7 @@
 
    [:> ReactHighcharts {:config {:title  {:text "Dependency Wheel Chart"}
                                  :chart  {:type "dependencywheel"}
-                                 :series data/sankey-data-2}}]
+                                 :series data/sankey-data}}]
 
    [:> Globe {:layers ["usgs-topo"
                        "coordinates"
