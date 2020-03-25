@@ -5,8 +5,7 @@
  :dependencies
  [[reagent "0.8.1"]
   [org.clojure/core.async "0.4.500"]
-  [com.taoensso/timbre "4.10.0"]
-  ]
+  [com.taoensso/timbre "4.10.0"]]
 
  :dev-http {8080 "target/"}
  :builds {:app {:output-dir "target/"
@@ -15,7 +14,7 @@
                 :modules {:main {:init-fn main/main!}}
                 :devtools {:after-load main/reload!
                            :http-root "target"
-                           :http-port 8080}}}
+                           :http-port 8080}}}}
 
 
- }
+
