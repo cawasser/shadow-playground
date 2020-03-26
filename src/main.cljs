@@ -35,7 +35,7 @@
        [:> ReactHighcharts {:config data/line-data}]]
 
       [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
-       [:> ReactHighcharts {:config data/sankey-data-2}]]
+       [:> ReactHighcharts {:config data/depwheel-data}]]
 
       [:div {:key "3" :data-grid {:x 0 :y 3 :w 4 :h 3}}
        [:> ReactHighcharts {:config data/sankey-data}]]
