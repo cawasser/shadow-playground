@@ -7,6 +7,7 @@
             ["highcharts" :as Highcharts]
             ["highcharts/modules/sankey" :as addSankeyModule]
             ["highcharts/modules/dependency-wheel" :as addDependencyWheelModule]
+            ["highcharts/modules/heatmap" :as addHeatmapModule]
             ["react-highcharts" :as ReactHighcharts]
             ["toastr" :as toastr]
             ["worldwind-react-globe" :as Globe]
@@ -31,19 +32,16 @@
       {:className "layout" :cols 12}
 
       [:div {:key "1" :data-grid {:x 0 :y 0 :w 4 :h 3}}
-       [:> ReactHighcharts {:config {:title  {:text "Line Chart"}
-                                     :chart  {:type "line"}
-                                     :series data/line-data}}]]
+       [:> ReactHighcharts {:config data/line-data}]]
 
       [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
-       [:> ReactHighcharts {:config {:title  {:text "Sankey Chart"}
-                                     :chart  {:type "sankey"}
-                                     :series data/sankey-data-2}}]]
+       [:> ReactHighcharts {:config data/sankey-data-2}]]
 
       [:div {:key "3" :data-grid {:x 0 :y 3 :w 4 :h 3}}
-       [:> ReactHighcharts {:config {:title  {:text "Dependency Wheel Chart"}
-                                     :chart  {:type "dependencywheel"}
-                                     :series data/sankey-data}}]]
+       [:> ReactHighcharts {:config data/sankey-data}]]
+
+      [:div {:key "5" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+       [:> ReactHighcharts {:config data/heatmap-data}]]
 
       [:div {:key "4" :data-grid {:x 4 :y 3 :w 4 :h 3}}
        [:> Globe {:layers ["usgs-topo"
@@ -63,6 +61,6 @@
 (defn main! []
   (addSankeyModule Highcharts)
   (addDependencyWheelModule Highcharts)
-  ;(withHighcharts main-component Highcharts)
+  (addHeatmapModule Highcharts)
   (mount main-component)
   (print "Hello Main"))
