@@ -1,5 +1,19 @@
-(ns data)
+(ns data
+  (:require ["maps/au-all.js" ]))
 
+(def aus-map-data
+  {:chart {:spacingBottom 20}
+   :title {:text "Australia"}
+   :legend {:enabled true}
+   :plotOptions {:map
+                 {:allAreas false
+                  :joinBy ["iso-a2" "code"]
+                  :dataLabels {:enabled true
+                               :color "white"
+                               :style {:fontWeight "bold"}}
+                  ;:mapData "maps/au-all.js"
+                  :tooltip {:headerFormat ""
+                            :pointFormat "{point.name} <b>{series.name}</b>"}}}})
 
 (def line-data
   {:title  {:text "Line Chart"}

@@ -5,6 +5,7 @@
             [cljs.core.async :refer (chan put! <! go go-loop timeout)]
             ["@material-ui/core" :refer [Button]]
             ["highcharts" :as Highcharts]
+            ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
             ["highcharts/modules/sankey" :as addSankeyModule]
             ["highcharts/modules/dependency-wheel" :as addDependencyWheelModule]
             ["highcharts/modules/heatmap" :as addHeatmapModule]
@@ -42,6 +43,9 @@
 
       [:div {:key "5" :data-grid {:x 0 :y 3 :w 4 :h 3}}
        [:> ReactHighcharts {:config data/heatmap-data}]]
+
+      [:div {:key "6" :data-grid {:x 6 :y 3 :w 4 :h 3}}
+       [:> ReactHighmaps {:config data/aus-map-data}]]
 
       [:div {:key "4" :data-grid {:x 4 :y 3 :w 4 :h 3}}
        [:> Globe {:layers ["usgs-topo"
