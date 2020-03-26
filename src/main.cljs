@@ -51,7 +51,10 @@
        [:> Globe {:layers ["usgs-topo"
                            "coordinates"
                            "view-controls"
-                           "compass"]}]]]]))
+                           "compass"]
+                  :latitude 28.538336
+                  :longitude -81.379234
+                  :altitude 35000}]]]]))
 
 
 (defn mount [c]

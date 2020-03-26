@@ -70,4 +70,4 @@ This tells shadow-cljs to compile the "app" build defined in `shadow-cljs.edn` a
 The biggest difference is that shadow-cljs is NOT an all-purpose build tool; it only works with Clojurescript. You can't build Clojure code using shadow-cljs.
 
 Also, shadow-cljs defers to npm for managing your javascript dependencies. It can handle your Clojurescript ones, but it will be on you as the Developer
-to use npm to install any *new* JS packages you use in your app. The shaodw-cljs will remember the packages you have added in `package.json` and `package-lock.json`
+to use npm to install any *new* JS packages you use in your app. The shadow-cljs will remember the packages you have added in `package.json` and `package-lock.json`
