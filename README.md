@@ -14,7 +14,7 @@ A simple template for my shadow-cljs experiments
 This project uses [shadow-cljs](http://shadow-cljs.org/) as the build tooling. shadow-cljs leverages the Node.js
 package manager ["npm"](https://www.npmjs.com/) to make integrating Javascript libraries much easier when using Clojurescript.
 
-This means that both npm and shadow-cljs must be installed:
+This means that both npm and shadow-cljs must be installed.
 
 ### Installing NPM
 
@@ -24,7 +24,7 @@ For MacOS, use:
 
 For Windows, follow the instructions at [https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm).
 
-> This will direct you to install nodejs via [https://nodejs.org/en/](https://nodejs.org/en/). You might just want togo there first
+> This will direct you to install nodejs via [https://nodejs.org/en/](https://nodejs.org/en/). You might just want to go there first
 > and then go back to the npmjs page
 
 
@@ -37,7 +37,7 @@ Once nodejs and npm are installed, run:
 
 ## Configure the Project in Cursive
 
-Cursive does not current support shadow-cljs project "natively", but there is still a way to use the IDE. If your  
+Cursive does not current support shadow-cljs project "natively", but there is still a way to use the IDE. If your
 project does NOT have a `*.pom` file, run:
 
     shadow-cljs pom
@@ -67,7 +67,7 @@ This tells shadow-cljs to compile the "app" build defined in `shadow-cljs.edn` a
 
 ## Shadow-cljs Differences From Leiningen
 
-The biggest difference is that shadow-cljs is NOT an all-purpose build tool; it only fork for Clojurescript. You can't build Clojure code using shadow-cljs.
+The biggest difference is that shadow-cljs is NOT an all-purpose build tool; it only works with Clojurescript. You can't build Clojure code using shadow-cljs.
 
-Also, shadow-cljs defers to npm for managing you javascript dependencies. It can handle you Clojurescript, ones, but it will be on you as the Developer
-to use npm to install any *new* JS packages you use in your app.
+Also, shadow-cljs defers to npm for managing your javascript dependencies. It can handle your Clojurescript ones, but it will be on you as the Developer
+to use npm to install any *new* JS packages you use in your app. The shaodw-cljs will remember the packages you have added in `package.json` and `package-lock.json`
