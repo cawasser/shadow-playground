@@ -23,9 +23,9 @@
                     5113, 5113, 4954, 4804, 4761, 4717, 4368, 4018]}]})
 
 
-(def sankey-data
-  {:title  {:text "Sankey Chart"}
-   :chart  {:type "sankey"}
+(def depwheel-data
+  {:title  {:text "Dependency Wheel Chart"}
+   :chart  {:type "dependencywheel"}
    :series [{:keys ["from" "to" "weight"]
              :data [["Oil" "Transportation" 94]
                     ["Natural Gas" "Transportation" 3]
@@ -49,9 +49,9 @@
                     ["Nuclear" "Electric Power" 22]]}]})
 
 
-(def sankey-data-2
-  {:title  {:text "Dependency Wheel Chart"}
-   :chart  {:type "dependencywheel"}
+(def sankey-data
+  {:title  {:text "Sankey Chart"}
+   :chart  {:type "sankey"}
    :series [{:keys ["from" "to" "weight"]
              :data [["Brazil" "Portugal" 5]
                     ["Brazil" "France" 1]
