@@ -62,8 +62,11 @@
   (print "Hello reload!"))
 
 (defn main! []
+  ; learned this litte trick from:
+  ;   https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
   (addSankeyModule Highcharts)
   (addDependencyWheelModule Highcharts)
   (addHeatmapModule Highcharts)
+
   (mount main-component)
   (print "Hello Main"))
