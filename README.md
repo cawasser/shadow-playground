@@ -5,8 +5,11 @@ A simple template for my shadow-cljs experiments
 
 ## Outline
 
-* Setup Your Build Toolchain
-* Configure the Project in Cursive
+* [Setup Your Build Toolchain](#setup-your-build-toolchain)
+* [Configure the Project in Cursive](#configure-the-project-in-cursive)
+* [Developing the App](#developing-the-app)
+* [Shadow-cljs Differences From Leiningen](#shadow-cljs-differences-from-leiningen)
+* [References](#references)
 
 
 ## Setup Your Build Toolchain
@@ -71,3 +74,37 @@ The biggest difference is that shadow-cljs is NOT an all-purpose build tool; it 
 
 Also, shadow-cljs defers to npm for managing your javascript dependencies. It can handle your Clojurescript ones, but it will be on you as the Developer
 to use npm to install any *new* JS packages you use in your app. The shadow-cljs will remember the packages you have added in `package.json` and `package-lock.json`
+
+## References
+
+### Shadow-cljs and using npm
+https://www.freecodecamp.org/news/why-clojurescript-works-so-well-with-npm-128221d302ba/
+https://github.com/shadow-cljs/shadow-cljs.github.io
+
+### Grid
+https://github.com/strml/react-grid-layout
+
+### ReactHighcharts:
+https://github.com/kirjs/react-highcharts
+http://kirjs.github.io/react-highcharts/index.html
+http://kirjs.github.io/react-highcharts/highmaps.html
+http://kirjs.github.io/react-highcharts/more.html
+
+### Highmaps
+https://www.highcharts.com/docs/maps/map-collection
+http://kirjs.github.io/react-highcharts/highmaps.html
+
+### Accessing extended Highcharts types:
+https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
+
+### CompactPicker (color picker):
+http://casesandberg.github.io/react-color/
+
+### TimeLine (gantt):
+https://github.com/guiqui/react-timeline-gantt
+https://codesandbox.io/s/3x8nl16p65
+
+### cljs-time:
+https://github.com/andrewmcveigh/cljs-time
+http://www.andrewmcveigh.com/cljs-time/latest/index.html
+

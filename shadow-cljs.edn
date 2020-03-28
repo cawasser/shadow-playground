@@ -5,7 +5,8 @@
  :dependencies
  [[reagent "0.8.1"]
   [org.clojure/core.async "0.4.500"]
-  [com.taoensso/timbre "4.10.0"]]
+  [com.taoensso/timbre "4.10.0"]
+  [com.andrewmcveigh/cljs-time "0.5.2"]]
 
  :dev-http {8080 "target/"}
  :builds {:app {:output-dir "target/"
