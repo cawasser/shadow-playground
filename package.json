@@ -20,6 +20,7 @@
    },
    "homepage": "https://github.com/zamansky/shadow-cjs-template#readme",
    "dependencies": {
+      "@highcharts/map-collection": "^1.1.3",
       "@material-ui/core": "^3",
       "create-react-class": "^15.6.3",
       "highcharts": "^7.2.1",

@@ -4,7 +4,6 @@
             [picker :as p]
             [cljs.core.async :refer (chan put! <! go go-loop timeout)]
             ["@material-ui/core" :refer [Button]]
-            ["highcharts" :as Highcharts]
             ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
             ["highcharts/modules/sankey" :as addSankeyModule]
             ["highcharts/modules/dependency-wheel" :as addDependencyWheelModule]
@@ -12,8 +11,9 @@
             ["react-highcharts" :as ReactHighcharts]
             ["toastr" :as toastr]
             ["worldwind-react-globe" :as Globe]
-            ["react-grid-layout" :as ResponsiveGridLayout]))
+            ["react-grid-layout" :as ResponsiveGridLayout]
 
+            [mapping.highcharts-mapping :as mapping]))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -64,6 +64,12 @@
       [:div {:key "5" :data-grid {:x 0 :y 3 :w 4 :h 3}}
        [:> ReactHighcharts {:config data/heatmap-data}]]
 
+      [:div {:key "6" :data-grid {:x 6 :y 3 :w 4 :h 3}}
+       [:> ReactHighmaps {:config mapping/world-map-data}]]
+
+      [:div {:key "7" :data-grid {:x 6 :y 3 :w 4 :h 3}}
+       [:> ReactHighmaps {:config mapping/aus-map-data}]]
+
       [:div {:key "4" :data-grid {:x 4 :y 3 :w 4 :h 3}}
        [:> Globe {:layers ["usgs-topo"
                            "coordinates"
@@ -83,14 +89,11 @@
   (print "Hello reload!"))
 
 (defn main! []
-  ; learned this litte trick from:
+  ; learned this little trick from:
   ;   https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
   (addSankeyModule Highcharts)
   (addDependencyWheelModule Highcharts)
   (addHeatmapModule Highcharts)
-
-  ; would this work?
-  (ReactHighmaps ReactHighcharts/Highcharts)
 
   (mount main-component)
   (print "Hello Main"))
