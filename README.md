@@ -79,6 +79,7 @@ to use npm to install any *new* JS packages you use in your app. Then shadow-clj
 
 ### Shadow-cljs and using npm
 https://www.freecodecamp.org/news/why-clojurescript-works-so-well-with-npm-128221d302ba/
+
 https://github.com/shadow-cljs/shadow-cljs.github.io
 
 ### Grid
@@ -86,12 +87,16 @@ https://github.com/strml/react-grid-layout
 
 ### ReactHighcharts:
 https://github.com/kirjs/react-highcharts
+
 http://kirjs.github.io/react-highcharts/index.html
+
 http://kirjs.github.io/react-highcharts/highmaps.html
+
 http://kirjs.github.io/react-highcharts/more.html
 
 ### Highmaps
 https://www.highcharts.com/docs/maps/map-collection
+
 http://kirjs.github.io/react-highcharts/highmaps.html
 
 ### Accessing extended Highcharts types:
@@ -102,9 +107,11 @@ http://casesandberg.github.io/react-color/
 
 ### TimeLine (Gantt):
 https://github.com/guiqui/react-timeline-gantt
+
 https://codesandbox.io/s/3x8nl16p65
 
 ### cljs-time:
 https://github.com/andrewmcveigh/cljs-time
+
 http://www.andrewmcveigh.com/cljs-time/latest/index.html
 
