@@ -46,7 +46,7 @@ project does NOT have a `*.pom` file, run:
     shadow-cljs pom
 
 Once the pom file is built you can open Cursive and select "File | New | Project from Existing Sources...". Navigate to
-you project folder and double-click on the `*.pom` file. ONce Cursive sort itself out, click the pulldown at the
+you project folder and double-click on the `*.pom` file. Once Cursive sorts itself out, click the pull-down at the
 top of the Project sidebar window and select "Project Files". This will give you a working view similar to what you
 might be used to from a Leiningen project.
 
@@ -54,12 +54,12 @@ might be used to from a Leiningen project.
 
 ## Developing the App
 
-> Note: If this is the very first time you are going to run the app for after cloning it from a repo, you will need to use `npm` to fetch  
+> Note: If this is the very first time you are going to run the app for after cloning it from a repo, you will need to use `npm` to fetch
 > all the javascript dependencies. This is actually very easy. Just run:
 >
 >   npm install
 >
-> and `npm` will install all the dependencies defined in the package-lock.json file
+> and `npm` will install all the dependencies defined in the package-lock.json file. It is recommended you do this every time you pull from a repo!
 
 At the terminal, navigate into your project folder and run:
 
@@ -72,8 +72,8 @@ This tells shadow-cljs to compile the "app" build defined in `shadow-cljs.edn` a
 
 The biggest difference is that shadow-cljs is NOT an all-purpose build tool; it only works with Clojurescript. You can't build Clojure code using shadow-cljs.
 
-Also, shadow-cljs defers to npm for managing your javascript dependencies. It can handle your Clojurescript ones, but it will be on you as the Developer
-to use npm to install any *new* JS packages you use in your app. The shadow-cljs will remember the packages you have added in `package.json` and `package-lock.json`
+Also, shadow-cljs defers to npm for managing your Javascript dependencies. It can handle your Clojurescript ones, but it will be on you as the Developer
+to use npm to install any *new* JS packages you use in your app. Then shadow-cljs will remember the packages you have added in `package.json` and `package-lock.json`
 
 ## References
 
@@ -100,7 +100,7 @@ https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
 ### CompactPicker (color picker):
 http://casesandberg.github.io/react-color/
 
-### TimeLine (gantt):
+### TimeLine (Gantt):
 https://github.com/guiqui/react-timeline-gantt
 https://codesandbox.io/s/3x8nl16p65
 

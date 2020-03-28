@@ -35,7 +35,7 @@
 ;      http://kirjs.github.io/react-highcharts/highmaps.html
 ;      http://kirjs.github.io/react-highcharts/more.html
 ;
-; Highmap:s
+; Highmaps:
 ;  https://www.highcharts.com/docs/maps/map-collection
 ;  http://kirjs.github.io/react-highcharts/highmaps.html
 ;
