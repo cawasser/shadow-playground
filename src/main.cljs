@@ -5,6 +5,7 @@
             [cljs.core.async :refer (chan put! <! go go-loop timeout)]
             ["@material-ui/core" :refer [Button]]
             ["highcharts" :as Highcharts]
+            ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
             ["highcharts/modules/sankey" :as addSankeyModule]
             ["highcharts/modules/dependency-wheel" :as addDependencyWheelModule]
             ["highcharts/modules/heatmap" :as addHeatmapModule]
@@ -13,6 +14,26 @@
             ["worldwind-react-globe" :as Globe]
             ["react-grid-layout" :as ResponsiveGridLayout]))
 
+
+;;;;;;;;;;;;;;;;;;;;;;
+;
+; Some reference material:
+;
+;  https://www.freecodecamp.org/news/why-clojurescript-works-so-well-with-npm-128221d302ba/
+;
+;  https://github.com/shadow-cljs/shadow-cljs.github.io
+;
+;  https://github.com/strml/react-grid-layout
+;
+;  https://github.com/kirjs/react-highcharts
+;      http://kirjs.github.io/react-highcharts/index.html
+;      http://kirjs.github.io/react-highcharts/highmaps.html
+;      http://kirjs.github.io/react-highcharts/more.html
+;
+;  https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
+;
+;  http://casesandberg.github.io/react-color/
+;
 
 (def picker? (r/atom false))
 
@@ -67,6 +88,9 @@
   (addSankeyModule Highcharts)
   (addDependencyWheelModule Highcharts)
   (addHeatmapModule Highcharts)
+
+  ; would this work?
+  (ReactHighmaps ReactHighcharts/Highcharts)
 
   (mount main-component)
   (print "Hello Main"))
