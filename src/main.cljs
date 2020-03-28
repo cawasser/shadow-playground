@@ -91,9 +91,9 @@
 (defn main! []
   ; learned this little trick from:
   ;   https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
-  (addSankeyModule Highcharts)
-  (addDependencyWheelModule Highcharts)
-  (addHeatmapModule Highcharts)
+  (addSankeyModule ReactHighcharts/Highcharts)
+  (addDependencyWheelModule ReactHighcharts/Highcharts)
+  (addHeatmapModule ReactHighcharts/Highcharts)
 
   (mount main-component)
   (print "Hello Main"))
