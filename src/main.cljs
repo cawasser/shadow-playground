@@ -3,7 +3,8 @@
             [cljs-time.core :as t]
             [data :as data]
             [picker :as p]
-            [cljs.core.async :refer (chan put! <! go go-loop timeout)]
+            [basic-widget :refer [basic-widget]]
+            ;[cljs.core.async :refer (chan put! <! go go-loop timeout)]
             ["@material-ui/core" :refer [Button]]
             ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
             ["highcharts/modules/sankey" :as addSankeyModule]
@@ -59,6 +60,9 @@
 ;
 
 
+(def black {:r 0 :g 0 :b 0 :a 1})
+(def white {:r 255 :g 255 :b 255 :a 1})
+
 
 (def picker? (r/atom false))
 
@@ -108,21 +112,30 @@
        ;
        [:div {:style {:width "650px" :height "400px"}
               :key "8" :data-grid {:x 6 :y 3 :w 4 :h 3}}
-        [:p "Timeline"]
-        [:div {:class "time-line-container"
-               :style {:width "650px" :height "400px"}}
-         [:> TimeLine {:data  [{:id 1 :start (t/now)
-                                :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
-                               {:id 2 :start (t/plus (t/now) (t/months 1))
-                                :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
+        [basic-widget
+         "timeline"
+         [:div {:class "time-line-container"
+                :style {:width "650px" :height "400px"}}
+          [:> TimeLine {:data  [{:id 1 :start (t/now)
+                                 :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
+                                {:id 2 :start (t/plus (t/now) (t/months 1))
+                                 :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
 
-                       :links [{:id 1 :start 1 :end 2}
-                               {:id 2 :start 1 :end 3}]}]]]
+                        :links [{:id 1 :start 1 :end 2}
+                                {:id 2 :start 1 :end 3}]}]]
+         {:viz/title "Timeline"
+          :viz/banner-color {:r 150 :g 150 :b 150 :a 1}
+          :viz/banner-text-color white}]]
 
        [:div {:key "9" :data-grid {:x 6 :y 3 :w 4 :h 3}}
-        [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
-                            [:> ReactHighmaps {:config mapping/world-map-data}]
-                            [:> ReactHighmaps {:config mapping/aus-map-data}]]]]]]]))
+        [basic-widget
+         "carousel"
+         [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
+                             [:> ReactHighmaps {:config mapping/world-map-data}]
+                             [:> ReactHighmaps {:config mapping/aus-map-data}]]]
+         {:viz/title "Carousel"
+          :viz/banner-color {:r 255 :g 0 :b 0 :a 1}
+          :viz/banner-text-color white}]]]]]))
 
 
 

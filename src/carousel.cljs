@@ -12,8 +12,7 @@
 
 (defn carousel [contents]
 
-  [:div.headline {:style {:width "650px" :height "450px"}}
-   [:p "Carousel"]
+  [:div {:style {:width "650px" :height "450px"}}
    [:> CarouselProvider {:naturalSlideWidth 650
                          :naturalSlideHeight 400
                          :totalSlides (count contents)}
