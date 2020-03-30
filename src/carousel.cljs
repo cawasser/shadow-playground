@@ -4,6 +4,10 @@
                                            ButtonFirst ButtonBack ButtonNext ButtonLast]]))
 
 
+; Carousel
+;  https://github.com/express-labs/pure-react-carousel
+;
+
 
 
 (defn carousel [contents]
