@@ -102,8 +102,7 @@
 
 
 (defn heatmap-data* []
-  [{:dataLabels {:enabled true :color "#000000"}
-    :name       "Fruit Production per Continent"
+  [{:name       "Fruit Production per Continent"
     :keys       ["x" "y" "value"]
     :data       [[0, 0, 10], [0, 1, 19], [0, 2, 8],
                  [0, 3, 24], [0, 4, 67], [1, 0, 92],
@@ -143,11 +142,32 @@
                  :verticalAlign "top"
                  :y             25
                  :symbolHeight  280}
-   :plotOptions {}
+   :plotOptions {:series {:dataLabels {:enabled true :color "#000000"}}}
    :series      (heatmap-data*)})
 
-;(defn heatmap-data []
-;  [{:name "Fruit Production per Continent"
-;    :keys ["x" "y" "value"]
-;    :data (vec (for [x (range 0 10) y (range 0 7)] [x y (rand-int 101)]))}])
-;
+
+
+(defn- make-map [name xs max-qty]
+  {:name name
+   :data (into []
+           (for [y (range (count xs))]
+             [(get xs y) (rand-int max-qty)]))})
+
+
+(def hours ["0000h" "0100h" "0200h" "0300h" "0400h" "0600h"
+            "0700h" "0800h" "0900h" "1000h" "1100h"])
+
+
+(def rose-data
+  {:title  "12-hour Usage Data"
+   :chart  {:type            "column"
+            :polar           "true"
+            :zoomType        "x"
+            :marginTop       40
+            :marginBottom    80
+            :plotBorderWidth 1}
+   :series [(make-map "Apple" hours 200)
+            (make-map "Pears" hours 200)
+            (make-map "Grapes" hours 200)
+            (make-map "Oranges" hours 200)
+            (make-map "Bananas" hours 200)]})

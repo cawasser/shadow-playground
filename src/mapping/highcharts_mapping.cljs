@@ -1,7 +1,6 @@
 (ns mapping.highcharts-mapping
   (:require ["@highcharts/map-collection/custom/world.geo.json" :as world-geo]
-            ["@highcharts/map-collection/countries/au/au-all.geo.json" :as aus-geo]
-            ["proj4/dist/proj4.js" :as proj4]))
+            ["@highcharts/map-collection/countries/au/au-all.geo.json" :as aus-geo]))
 
 
 ; trying to follow the react-highcharts example for maps at:
