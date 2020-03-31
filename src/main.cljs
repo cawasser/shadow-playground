@@ -1,5 +1,7 @@
 (ns main
   (:require [reagent.core :as r]
+            [re-frame.core :as rf]
+            [day8.re-frame.tracing :refer-macros [fn-traced defn-traced]]
             [cljs-time.core :as t]
             [data :as data]
             [picker :as p]
@@ -107,35 +109,35 @@
        ;[:div {:key "6" :data-grid {:x 6 :y 3 :w 4 :h 3}}
        ; [:> ReactHighmaps {:config mapping/world-map-data}]]
        ;
-       ;[:div {:key "7" :data-grid {:x 6 :y 3 :w 4 :h 3}}
-       ; [:> ReactHighmaps {:config mapping/aus-map-data}]]
+       [:div {:key "7" :data-grid {:x 6 :y 3 :w 4 :h 3}}
+        [:> ReactHighmaps {:config mapping/aus-map-data}]]]]]))
        ;
-       [:div {:style {:width "650px" :height "400px"}
-              :key "8" :data-grid {:x 6 :y 3 :w 4 :h 3}}
-        [basic-widget
-         "timeline"
-         [:div {:class "time-line-container"
-                :style {:width "650px" :height "400px"}}
-          [:> TimeLine {:data  [{:id 1 :start (t/now)
-                                 :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
-                                {:id 2 :start (t/plus (t/now) (t/months 1))
-                                 :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
-
-                        :links [{:id 1 :start 1 :end 2}
-                                {:id 2 :start 1 :end 3}]}]]
-         {:viz/title "Timeline"
-          :viz/banner-color {:r 150 :g 150 :b 150 :a 1}
-          :viz/banner-text-color white}]]
-
-       [:div {:key "9" :data-grid {:x 6 :y 3 :w 4 :h 3}}
-        [basic-widget
-         "carousel"
-         [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
-                             [:> ReactHighmaps {:config mapping/world-map-data}]
-                             [:> ReactHighmaps {:config mapping/aus-map-data}]]]
-         {:viz/title "Carousel"
-          :viz/banner-color {:r 255 :g 0 :b 0 :a 1}
-          :viz/banner-text-color white}]]]]]))
+       ;[:div {:style {:width "650px" :height "400px"}
+       ;       :key "8" :data-grid {:x 6 :y 3 :w 4 :h 3}}
+       ; [basic-widget
+       ;  "timeline"
+       ;  [:div {:class "time-line-container"
+       ;         :style {:width "650px" :height "400px"}}
+       ;   [:> TimeLine {:data  [{:id 1 :start (t/now)
+       ;                          :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
+       ;                         {:id 2 :start (t/plus (t/now) (t/months 1))
+       ;                          :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
+       ;
+       ;                 :links [{:id 1 :start 1 :end 2}
+       ;                         {:id 2 :start 1 :end 3}]}]]
+       ;  {:viz/title "Timeline"
+       ;   :viz/banner-color {:r 150 :g 150 :b 150 :a 1}
+       ;   :viz/banner-text-color white}]]
+       ;
+       ;[:div {:key "9" :data-grid {:x 6 :y 3 :w 4 :h 3}}
+       ; [basic-widget
+       ;  "carousel"
+       ;  [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
+       ;                      [:> ReactHighmaps {:config mapping/world-map-data}]
+       ;                      [:> ReactHighmaps {:config mapping/aus-map-data}]]]
+       ;  {:viz/title "Carousel"
+       ;   :viz/banner-color {:r 255 :g 0 :b 0 :a 1}
+       ;   :viz/banner-text-color white}]]]]]))
 
 
 
