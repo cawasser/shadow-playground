@@ -9,6 +9,7 @@
             ;[cljs.core.async :refer (chan put! <! go go-loop timeout)]
             ["@material-ui/core" :refer [Button]]
             ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
+            ["highcharts-more" :as HighchartsMore]
             ["highcharts/modules/sankey" :as addSankeyModule]
             ["highcharts/modules/dependency-wheel" :as addDependencyWheelModule]
             ["highcharts/modules/heatmap" :as addHeatmapModule]
@@ -112,55 +113,55 @@
             :viz/banner-color {:r 128 :g 0 :b 128 :a 1}
             :viz/banner-text-color white}]]
 
-       #_[:div {:key "31" :data-grid {:x 0 :y 3 :w 4 :h 3}}
-          [basic-widget
-           "Rose"
-           [:> ReactHighcharts {:config data/rose-data}]
-           {:viz/title "Rose"
-            :viz/banner-color {:r 128 :g 128 :b 0 :a 1}
-            :viz/banner-text-color white}]]
-
-       [:div {:style {:width "400px" :height "350px"}
-              :key "4" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+       [:div {:key "31" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
-         "WorldWind"
-         [:> Globe {:layers    ["usgs-topo"
-                                "coordinates"
-                                "view-controls"
-                                "compass"]
-                    :latitude  28.538336
-                    :longitude -81.379234
-                    :altitude  35000}]
-         {:viz/title "Worldwind"
+         "Rose"
+         [:> ReactHighcharts {:config data/rose-data}]
+         {:viz/title "Rose"
           :viz/banner-color {:r 128 :g 128 :b 0 :a 1}
           :viz/banner-text-color white}]]
 
-       [:div {:style {:width "650px" :height "400px"}
-              :key "8" :data-grid {:x 0 :y 3 :w 4 :h 3}}
-        [basic-widget
-         "timeline"
-         [:div {:class "time-line-container"
-                :style {:width "650px" :height "400px"}}
-          [:> TimeLine {:data  [{:id 1 :start (t/now)
-                                 :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
-                                {:id 2 :start (t/plus (t/now) (t/months 1))
-                                 :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
+       #_[:div {:style {:width "400px" :height "350px"}
+                :key "4" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+          [basic-widget
+           "WorldWind"
+           [:> Globe {:layers    ["usgs-topo"
+                                  "coordinates"
+                                  "view-controls"
+                                  "compass"]
+                      :latitude  28.538336
+                      :longitude -81.379234
+                      :altitude  35000}]
+           {:viz/title "Worldwind"
+            :viz/banner-color {:r 128 :g 128 :b 0 :a 1}
+            :viz/banner-text-color white}]]
 
-                        :links [{:id 1 :start 1 :end 2}
-                                {:id 2 :start 1 :end 3}]}]]
-         {:viz/title "Timeline"
-          :viz/banner-color {:r 150 :g 150 :b 150 :a 1}
-          :viz/banner-text-color white}]]
+       #_[:div {:style {:width "650px" :height "400px"}
+                :key "8" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+          [basic-widget
+           "timeline"
+           [:div {:class "time-line-container"
+                  :style {:width "650px" :height "400px"}}
+            [:> TimeLine {:data  [{:id 1 :start (t/now)
+                                   :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
+                                  {:id 2 :start (t/plus (t/now) (t/months 1))
+                                   :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
 
-       [:div {:key "9" :data-grid {:x 10 :y 3 :w 4 :h 3}}
-        [basic-widget
-         "carousel"
-         [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
-                             [:> ReactHighmaps {:config mapping/world-map-data}]
-                             [:> ReactHighmaps {:config mapping/aus-map-data}]]]
-         {:viz/title "Carousel"
-          :viz/banner-color {:r 255 :g 0 :b 0 :a 1}
-          :viz/banner-text-color white}]]
+                          :links [{:id 1 :start 1 :end 2}
+                                  {:id 2 :start 1 :end 3}]}]]
+           {:viz/title "Timeline"
+            :viz/banner-color {:r 150 :g 150 :b 150 :a 1}
+            :viz/banner-text-color white}]]
+
+       #_[:div {:key "9" :data-grid {:x 10 :y 3 :w 4 :h 3}}
+          [basic-widget
+           "carousel"
+           [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
+                               [:> ReactHighmaps {:config mapping/world-map-data}]
+                               [:> ReactHighmaps {:config mapping/aus-map-data}]]]
+           {:viz/title "Carousel"
+            :viz/banner-color {:r 255 :g 0 :b 0 :a 1}
+            :viz/banner-text-color white}]]
 
        #_[:div {:key "100" :data-grid {:x 6 :y 3 :w 4 :h 3}}
           [basic-widget "markdown"
@@ -187,5 +188,8 @@
   (addSankeyModule ReactHighcharts/Highcharts)
   (addDependencyWheelModule ReactHighcharts/Highcharts)
   (addHeatmapModule ReactHighcharts/Highcharts)
+
+  ; http://kirjs.github.io/react-highcharts/more.html
+  (HighchartsMore ReactHighcharts/Highcharts)
 
   (mount main-component))

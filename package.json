@@ -26,6 +26,7 @@
       "create-react-class": "^15.6.3",
       "css-layout": "^1.1.1",
       "highcharts": "^7.2.1",
+      "highcharts-more": "^0.1.7",
       "highlight.js": "9.15.10",
       "minimist": "^1.2.5",
       "mobx": "^4.15.4",
