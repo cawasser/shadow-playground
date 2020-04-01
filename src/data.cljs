@@ -147,7 +147,7 @@
 
 
 
-(defn- make-map [name xs max-qty]
+(defn- rose-data* [name xs max-qty]
   {:name name
    :data (into []
            (for [y (range (count xs))]
@@ -166,8 +166,25 @@
             :marginTop       40
             :marginBottom    80
             :plotBorderWidth 1}
-   :series [(make-map "Apple" hours 200)
-            (make-map "Pears" hours 200)
-            (make-map "Grapes" hours 200)
-            (make-map "Oranges" hours 200)
-            (make-map "Bananas" hours 200)]})
+   :series [(rose-data* "Apple" hours 200)
+            (rose-data* "Pears" hours 200)
+            (rose-data* "Grapes" hours 200)
+            (rose-data* "Oranges" hours 200)
+            (rose-data* "Bananas" hours 200)]})
+
+
+(def md-data
+  "# Live demo
+Changes are automatically rendered as you type.
+
+## Table of Contents
+
+* Implements [GitHub Flavored Markdown](https://github.github.com/gfm/)
+* Renders actual, \"native\" React DOM elements
+* Allows you to escape or skip HTML (try toggling the checkboxes above)
+* If you escape or skip the HTML, no `dangerouslySetInnerHTML` is used! Yay!
+
+## HTML block below
+<blockquote>
+   This blockquote will change based on the HTML settings above.
+</blockquote>")

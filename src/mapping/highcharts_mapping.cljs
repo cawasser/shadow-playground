@@ -22,17 +22,7 @@
                                 :style   {:fontWeight "bold"}}}
    :mapNavigation {:enabled       true
                    :buttonOptions {:verticalAlign "bottom"}}
-   :series        [{:data       [["eu" (rand-int 101)]
-                                 ["oc" (rand-int 101)]
-                                 ["af" (rand-int 101)]
-                                 ["as" (rand-int 101)]
-                                 ["na" (rand-int 101)]
-                                 ["sa" (rand-int 101)]]
-                    :name       "Tons produced"
-                    :states     {:hover {:color "#BADA55"}}
-                    :dataLabels {:enabled true
-                                 :format  "{point.name}"}}
-                   {:type  "mappoint"
+   :series        [{:type  "mappoint"
                     :name  "Cities"
                     :color "#000000"
                     :data  [{:name "Canberra"
