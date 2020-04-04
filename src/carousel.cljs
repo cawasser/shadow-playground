@@ -22,13 +22,13 @@
      (for [[idx c] (map-indexed vector contents)]
        [:> Slide {:key idx :index idx} c])]
 
-    [:> ButtonFirst {:class "button"} "First"]
-    [:> ButtonBack {:class "button"} "Back"]
-    [:> ButtonNext {:class "button"} "Next"]
-    [:> ButtonLast {:class "button"} "Last"]
+    [:> ButtonFirst {:class "button is-small"} "First"]
+    [:> ButtonBack {:class "button is-small"} "Back"]
+    [:> ButtonNext {:class "button is-small"} "Next"]
+    [:> ButtonLast {:class "button is-small"} "Last"]
 
     [:div
      (for [[idx c] (map-indexed vector contents)]
-       [:> Dot {:class "button" :slide idx}])]]])
+       [:> Dot {:class "button is-small" :slide idx}])]]])
 
 
