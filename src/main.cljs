@@ -6,7 +6,7 @@
             [data :as data]
             [picker :as p]
             [basic-widget :refer [basic-widget]]
-    ;[cljs.core.async :refer (chan put! <! go go-loop timeout)]
+
             ["@material-ui/core" :refer [Button]]
             ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
             ["highcharts-more" :as HighchartsMore]
@@ -18,6 +18,7 @@
             ["worldwind-react-globe" :as Globe]
             ["react-grid-layout" :as ResponsiveGridLayout]
             ["react-gantt-timeline" :default TimeLine]
+
             [md-viewer :as md]
 
             [mapping.highcharts-mapping :as mapping]
