@@ -90,6 +90,12 @@
         :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
         :cols=       {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
 
+
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone HEATMAP
+       ;
        [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
         [basic-widget
          "Heatmap"
@@ -99,6 +105,12 @@
           :viz/banner-text-color white}]]
 
 
+
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone LINE CHART
+       ;
        [:div {:key "1" :data-grid {:x 0 :y 0 :w 4 :h 3}}
         [basic-widget
          "Spectrum (line)"
@@ -107,6 +119,12 @@
           :viz/banner-color      {:r 0 :g 255 :b 0 :a 1}
           :viz/banner-text-color black}]]
 
+
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone DEPENDENCY-WHEEL
+       ;
        [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
         [basic-widget
          "Dep-wheel"
@@ -115,6 +133,12 @@
           :viz/banner-color      {:r 0 :g 0 :b 255 :a 1}
           :viz/banner-text-color white}]]
 
+
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone SANKEY
+       ;
        [:div {:key "3" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
          "Sankey"
@@ -123,6 +147,12 @@
           :viz/banner-color      {:r 128 :g 0 :b 128 :a 1}
           :viz/banner-text-color white}]]
 
+
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone HIGHMAPS - 2D WORLD MAP
+       ;
        [:div {:key "300" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
          "World"
@@ -131,6 +161,11 @@
           :viz/banner-color      {:r 128 :g 0 :b 128 :a 1}
           :viz/banner-text-color white}]]
 
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone ROSE CHART
+       ;
        [:div {:key "31" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
          "Rose"
@@ -139,6 +174,11 @@
           :viz/banner-color      {:r 128 :g 128 :b 0 :a 1}
           :viz/banner-text-color white}]]
 
+
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone NASA WorldWind
+       ;
        [:div {;:style {:width "400px" :height "350px"}
               :key   "4" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
@@ -154,6 +194,10 @@
           :viz/banner-color      {:r 128 :g 128 :b 0 :a 1}
           :viz/banner-text-color white}]]
 
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; stand-alone GANTT CHART / TIMELINE
+       ;
        [:div {:style {:width "650px" :height "400px"}
               :key   "8" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
@@ -171,6 +215,13 @@
           :viz/banner-color      {:r 150 :g 150 :b 150 :a 1}
           :viz/banner-text-color white}]]
 
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;
+       ; CAROUSEL with:
+       ;     Heatmap
+       ;     2D World Map (Highmaps)
+       ;     2D Australia Map (Highmaps)
+       ;
        [:div {:key "9" :data-grid {:x 10 :y 3 :w 4 :h 3}}
         [basic-widget
          "carousel"
