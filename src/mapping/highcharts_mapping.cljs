@@ -22,7 +22,9 @@
                                 :style   {:fontWeight "bold"}}}
    :mapNavigation {:enabled       true
                    :buttonOptions {:verticalAlign "bottom"}}
-   :series        [{:type  "mappoint"
+   :series        [{:data   []
+                    :states {:hover {:color "#BADA55"}}}
+                   {:type  "mappoint"
                     :name  "Cities"
                     :color "#000000"
                     :data  [{:name "Canberra"
@@ -52,7 +54,8 @@
   {:chart         {:map      aus-geo
                    :zoomType "xy"}
    :title         {:text "Australia"}
-   :legend        {:enabled true}
+   :yAxis         {:title  {:align "high"}
+                   :labels {:overflow "justify"}}
    :plotOptions   {:dataLabels {:enabled true
                                 :color   "white"
                                 :style   {:fontWeight "bold"}}}
@@ -60,11 +63,9 @@
                    :buttonOptions {:verticalAlign "bottom"}}
    :series        [{:name         "Basemap"
                     :borderColor  "#A0A0A0"
-                    :nullColor    "rgba(200 200 200 0.3)"
                     :showInLegend false}
                    {:name                "Separators"
                     :type                "mapline"
-                    :nullColor           "#707070"
                     :showInLegend        false
                     :enableMouseTracking false}
                    {:type  "mappoint"

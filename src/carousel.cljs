@@ -15,7 +15,8 @@
   [:div {:style {:width "650px" :height "450px"}}
    [:> CarouselProvider {:naturalSlideWidth 650
                          :naturalSlideHeight 400
-                         :totalSlides (count contents)}
+                         :totalSlides (count contents)
+                         :dragEnabled false}
     [:> Slider {:class "slider"
                 :style {:width "650px" :height "380px"}}
      (for [[idx c] (map-indexed vector contents)]

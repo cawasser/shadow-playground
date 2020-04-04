@@ -125,7 +125,7 @@
 (def heatmap-data
   {:title       {:text "Heatmap Chart"}
    :chart       {:type            "heatmap"
-                 :zoomType        "x"
+                 :zoomType        "xy"
                  :marginTop       40
                  :marginBottom    80
                  :plotBorderWidth 1}
