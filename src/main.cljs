@@ -16,7 +16,7 @@
             ["react-highcharts" :as ReactHighcharts]
             ["toastr" :as toastr]
             ["worldwind-react-globe" :as Globe]
-            ["react-grid-layout" :as ResponsiveGridLayout]
+            ["react-grid-layout" :refer [Responsive WidthProvider]]
             ["react-gantt-timeline" :default TimeLine]
 
             [md-viewer :as md]
@@ -85,7 +85,7 @@
      [p/picker picker?]
 
      [:div
-      [:> ResponsiveGridLayout
+      [:> (WidthProvider Responsive)
        {:className   "layout"
         :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
         :cols=       {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
@@ -96,7 +96,7 @@
        ;
        ; stand-alone HEATMAP
        ;
-       [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
+       [:div {:key "1" :data-grid {:x 0 :y 0 :w 4 :h 3}}
         [basic-widget
          "Heatmap"
          [:> ReactHighcharts {:config data/heatmap-data}]
@@ -111,7 +111,7 @@
        ;
        ; stand-alone LINE CHART
        ;
-       [:div {:key "1" :data-grid {:x 0 :y 0 :w 4 :h 3}}
+       [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
         [basic-widget
          "Spectrum (line)"
          [:> ReactHighcharts {:config data/line-data}]
@@ -125,7 +125,7 @@
        ;
        ; stand-alone DEPENDENCY-WHEEL
        ;
-       [:div {:key "2" :data-grid {:x 4 :y 0 :w 4 :h 3}}
+       [:div {:key "3" :data-grid {:x 8 :y 0 :w 4 :h 3}}
         [basic-widget
          "Dep-wheel"
          [:> ReactHighcharts {:config data/depwheel-data}]
@@ -139,7 +139,7 @@
        ;
        ; stand-alone SANKEY
        ;
-       [:div {:key "3" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+       [:div {:key "4" :data-grid {:x 0 :y 3 :w 4 :h 3}}
         [basic-widget
          "Sankey"
          [:> ReactHighcharts {:config data/sankey-data}]
@@ -153,7 +153,7 @@
        ;
        ; stand-alone HIGHMAPS - 2D WORLD MAP
        ;
-       [:div {:key "300" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+       [:div {:key "5" :data-grid {:x 4 :y 3 :w 4 :h 3}}
         [basic-widget
          "World"
          [:> ReactHighmaps {:config mapping/world-map-data}]
@@ -166,7 +166,7 @@
        ;
        ; stand-alone ROSE CHART
        ;
-       [:div {:key "31" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+       [:div {:key "6" :data-grid {:x 8 :y 3 :w 4 :h 3}}
         [basic-widget
          "Rose"
          [:> ReactHighcharts {:config data/rose-data}]
@@ -180,7 +180,7 @@
        ; stand-alone NASA WorldWind
        ;
        [:div {;:style {:width "400px" :height "350px"}
-              :key   "4" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+              :key   "7" :data-grid {:x 0 :y 6 :w 4 :h 3}}
         [basic-widget
          "WorldWind"
          [:> Globe {:layers    ["usgs-topo"
@@ -199,7 +199,7 @@
        ; stand-alone GANTT CHART / TIMELINE
        ;
        [:div {:style {:width "650px" :height "400px"}
-              :key   "8" :data-grid {:x 0 :y 3 :w 4 :h 3}}
+              :key   "8" :data-grid {:x 4 :y 6 :w 4 :h 3}}
         [basic-widget
          "timeline"
          [:div {:class "time-line-container"
@@ -222,7 +222,7 @@
        ;     2D World Map (Highmaps)
        ;     2D Australia Map (Highmaps)
        ;
-       [:div {:key "9" :data-grid {:x 10 :y 3 :w 4 :h 3}}
+       [:div {:key "9" :data-grid {:x 8 :y 6 :w 4 :h 3}}
         [basic-widget
          "carousel"
          [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
