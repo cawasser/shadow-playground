@@ -7,9 +7,7 @@
 
 (defn basic-widget
   ([name custom-content options]
-   [:div {:class "vanilla.widgets container"
-          :style {:height (get options :viz/height "100%")
-                  :width  "100%"}}
+   [:div {:class "vanilla.widgets container"}
     [:div {:class  "title-wrapper grid-toolbar move-cursor"
            :cursor "move"}
      [:div.container.level
@@ -28,13 +26,9 @@
                                  :on-mouse-down #(.stopPropagation %)
                                  :on-click      #(.stopPropagation %)}]]]]
 
-    [:div {:class         (str (get options :viz/style-name "widget"))
+    [:div {:class         "widget"
            :style         {:width        "100%"
                            :height       "100%"
-                           :marginRight  "10px"
-                           :marginLeft   "10px"
-                           :marginTop    "5px"
-                           :marginBottom "5px"
                            :cursor       :default
                            :align-items  :stretch
                            :display      :flex}

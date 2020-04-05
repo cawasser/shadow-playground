@@ -179,8 +179,7 @@
        ;
        ; stand-alone NASA WorldWind
        ;
-       [:div {;:style {:width "400px" :height "350px"}
-              :key   "7" :data-grid {:x 0 :y 6 :w 4 :h 3}}
+       [:div {:key "7" :data-grid {:x 0 :y 6 :w 4 :h 3}}
         [basic-widget
          "WorldWind"
          [:> Globe {:layers    ["usgs-topo"
@@ -198,8 +197,7 @@
        ;
        ; stand-alone GANTT CHART / TIMELINE
        ;
-       [:div {:style {:width "650px" :height "400px"}
-              :key   "8" :data-grid {:x 4 :y 6 :w 4 :h 3}}
+       [:div {:key "8" :data-grid {:x 4 :y 6 :w 4 :h 3}}
         [basic-widget
          "timeline"
          [:div {:class "time-line-container"
