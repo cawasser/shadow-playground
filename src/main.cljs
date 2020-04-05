@@ -42,6 +42,9 @@
 ;      http://kirjs.github.io/react-highcharts/highmaps.html
 ;      http://kirjs.github.io/react-highcharts/more.html
 ;
+; Highcharts using NPM
+;  https://www.highcharts.com/docs/getting-started/install-from-npm
+;
 ; Highmaps:
 ;  https://www.highcharts.com/docs/maps/map-collection
 ;  http://kirjs.github.io/react-highcharts/highmaps.html
