@@ -158,7 +158,7 @@
          "World"
          [:> ReactHighmaps {:config mapping/world-map-data}]
          {:viz/title             "World"
-          :viz/banner-color      {:r 128 :g 0 :b 128 :a 1}
+          :viz/banner-color      {:r 0 :g 100 :b 128 :a 1}
           :viz/banner-text-color white}]]
 
 
