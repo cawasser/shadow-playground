@@ -66,7 +66,11 @@
 ; Carousel
 ;  https://github.com/express-labs/pure-react-carousel
 ;
-
+;
+; WorldWind
+;  https://github.com/worldwindearth/worldwind-react-globe
+;  https://worldwind.earth/
+;
 
 (def black {:r 0 :g 0 :b 0 :a 1})
 (def white {:r 255 :g 255 :b 255 :a 1})

@@ -1,5 +1,5 @@
 {
-   "name": "shadow-cjs-template",
+   "name": "shadow-playground",
    "version": "1.0.0",
    "description": "A simple template for my shadow-cljs experiments",
    "main": "index.js",
