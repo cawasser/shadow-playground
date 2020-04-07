@@ -66,6 +66,12 @@
      [:> Button {:variant  "contained"
                  :color    "secondary"
                  :on-click #(swap! picker? not)} "Picker!"]
+     [:> Button {:variant  "contained"
+                 :color    "primary"
+                 :on-click #(toastr/success "TODO: Rabbit Publish!")} "Rabbit Publish!"]
+     [:> Button {:variant  "contained"
+                 :color    "primary"
+                 :on-click #(toastr/success "TODO: Rabbit Consume!")} "Rabbit Consume!"]
 
      [p/picker picker?]
 
