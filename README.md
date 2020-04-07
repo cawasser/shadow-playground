@@ -1,6 +1,6 @@
 # Shadow-Playground
 
-A simple template for my shadow-cljs experiments
+A simple template for my shadow-cljs experiments with React components in Clojurescript/Reagent
 
 
 ## Outline
@@ -82,6 +82,11 @@ https://www.freecodecamp.org/news/why-clojurescript-works-so-well-with-npm-12822
 
 https://github.com/shadow-cljs/shadow-cljs.github.io
 
+### Reagent
+https://holmsand.github.io/reagent/
+
+https://github.com/reagent-project/reagent
+
 ### Grid
 https://github.com/strml/react-grid-layout
 
@@ -114,4 +119,7 @@ https://codesandbox.io/s/3x8nl16p65
 https://github.com/andrewmcveigh/cljs-time
 
 http://www.andrewmcveigh.com/cljs-time/latest/index.html
+
+### Carousel
+https://github.com/express-labs/pure-react-carousel
 
