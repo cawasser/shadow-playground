@@ -14,7 +14,9 @@
             ["worldwind-react-globe" :as Globe]
             ["react-grid-layout" :as ResponsiveGridLayout]
             ["react-gantt-timeline" :default TimeLine]
-
+            [rabbitConnect :as rConn]
+            [rabbitConsume :as rCons]
+            [rabbitPublish :as rPub]
             [mapping.highcharts-mapping :as mapping]))
 
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -68,7 +70,7 @@
                  :on-click #(swap! picker? not)} "Picker!"]
      [:> Button {:variant  "contained"
                  :color    "primary"
-                 :on-click #(toastr/success "TODO: Rabbit Publish!")} "Rabbit Publish!"]
+                 :on-click #(rPub/publish-message)} "Rabbit Publish!"]
      [:> Button {:variant  "contained"
                  :color    "primary"
                  :on-click #(toastr/success "TODO: Rabbit Consume!")} "Rabbit Consume!"]
@@ -131,4 +133,5 @@
   (addDependencyWheelModule ReactHighcharts/Highcharts)
   (addHeatmapModule ReactHighcharts/Highcharts)
 
-  (mount main-component))
+  (mount main-component)
+  (rConn/connect-to-broker))
