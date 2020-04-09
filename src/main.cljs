@@ -15,13 +15,13 @@
             ["highcharts/modules/heatmap" :as addHeatmapModule]
             ["react-highcharts" :as ReactHighcharts]
             ["toastr" :as toastr]
-            ["worldwind-react-globe" :as Globe]
             ["react-grid-layout" :refer [Responsive WidthProvider]]
             ["react-gantt-timeline" :default TimeLine]
 
             [md-viewer :as md]
 
             [mapping.highcharts-mapping :as mapping]
+            [mapping.worldwind :as ww]
             [carousel :as carousel]))
 
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -182,20 +182,14 @@
           :viz/banner-text-color white}]]
 
 
-       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
        ;
-       ; stand-alone NASA WorldWind
+       ; stand-alone NASA WorldWind]
        ;
        [:div {:key "7" :data-grid {:x 0 :y 6 :w 4 :h 3}}
         [basic-widget
          "WorldWind"
-         [:> Globe {:layers    ["usgs-topo"
-                                "coordinates"
-                                "view-controls"
-                                "compass"]
-                    :latitude  28.538336
-                    :longitude -81.379234
-                    :altitude  35000}]
+         [ww/globe]
          {:viz/title             "Worldwind"
           :viz/banner-color      {:r 128 :g 128 :b 0 :a 1}
           :viz/banner-text-color white}]]
