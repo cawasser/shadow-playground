@@ -20,7 +20,7 @@
     [:> Slider {:class "slider"
                 :style {:width "650px" :height "380px"}}
      (for [[idx c] (map-indexed vector contents)]
-       [:> Slide {:key idx :index idx} c])]
+       ^{:key idx} [:> Slide {:key idx :index idx} c])]
 
     [:> ButtonFirst {:class "button is-small"} "First"]
     [:> ButtonBack {:class "button is-small"} "Back"]
@@ -29,6 +29,6 @@
 
     [:div
      (for [[idx c] (map-indexed vector contents)]
-       [:> Dot {:class "button is-small" :slide idx}])]]])
+       ^{:key idx} [:> Dot {:class "button is-small" :slide idx}])]]])
 
 

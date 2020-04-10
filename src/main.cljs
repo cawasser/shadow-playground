@@ -246,9 +246,7 @@
 
 (defn reload! []
   (mount main-component)
-  (print "repl reload!")
-
-  (print "data/md-data " data/md-data))
+  (print "repl reload!"))
 
 (defn main! []
   ; learned this little trick from:

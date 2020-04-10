@@ -2,9 +2,8 @@
   ; not sure which of the many version of WorldWind might be the one to use, or if if has any
   ; affect on the Interop issues
   ;
-  (:require ;["worldwindjs" :as WorldWind :refer (Layer RenderableLayer Position GeographicText TextAttributes addRenderable)]
-            ["@nasaworldwind/worldwind" :as WorldWind :refer (Layer RenderableLayer Position GeographicText TextAttributes
-                                                               addRenderable)]
+  (:require [reagent.core :as r]
+            ["worldwindjs" :as WorldWind :refer (Layer RenderableLayer Position GeographicText TextAttributes addRenderable)]
             ["worldwind-react-globe" :as Globe :refer (addLayer)]))
 
 (defn renderable-layer []
@@ -33,7 +32,7 @@
     textLayer))
 
 (defn globe []
-  (let [g (Globe. (clj->js {:layers ["blue-marble-landsat"]}))
+  (let [g     (Globe. (clj->js {:layers ["blue-marble-landsat"]}))
         layer (renderable-layer)]
 
     (print "layer type" (type layer))
@@ -48,10 +47,10 @@
     (print "Globe" g)
 
     [:> Globe {:layers    ["blue-marble-landsat"
-                           ;layer]
-                           "renderables"]
-               :latitude  28.538336
-               :longitude -81.379234
+                           layer]
+               ;"renderables"]
+               :latitude  44.1035 ;28.538336
+               :longitude -121.7693 ;-81.379234
                :altitude  35000}]))
 
 
