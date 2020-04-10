@@ -47,8 +47,8 @@
     (print "Globe" g)
 
     [:> Globe {:layers    ["blue-marble-landsat"
-                           layer]
-               ;"renderables"]
+                           layer
+                           "renderables"]
                :latitude  44.1035 ;28.538336
                :longitude -121.7693 ;-81.379234
                :altitude  35000}]))
