@@ -42,14 +42,12 @@
 
 
 (defn renderable-layer [title data color]
-  (print "making a layer" title data)
   (let [layer          (WorldWind/RenderableLayer. title)
         textAttributes (WorldWind/TextAttributes.)]
 
     (set! (.-color textAttributes) color)
 
     (doall (map (fn [d]
-                  (print "found" d)
                   (let [point (WorldWind/Position. (:lat d) (:lon d) (:alt d))
                         loc   (WorldWind/Location.)
                         name  (get d :name "Missing")
@@ -82,6 +80,12 @@
   (let [cities    (renderable-layer "Cities" cities (.-YELLOW WorldWind/Color))
         terminals (renderable-layer "Terminals" terminals (.-WHITE WorldWind/Color))
         beams     (beam-layer "GDAs" beam-coverage)]
+
+    ; trying to debug the "instanceof" failure in WorldWind
+    ;
+    (print (type cities) " , " (type terminals)" , " (type beams))
+    (print (type (WorldWind/Layer.)) " , " (type WorldWind/Layer))
+    (print (= (type cities) WorldWind/Layer) " , " (= (type terminals) WorldWind/Layer) " , " (= (type beams) WorldWind/Layer))
 
     [:> Globe {:layers    ["blue-marble"
                            cities
