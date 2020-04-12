@@ -82,6 +82,7 @@
         beams     (beam-layer "GDAs" beam-coverage)]
 
     ; trying to debug the "instanceof" failure in WorldWind
+    ;    based on: https://kanaka.github.io/clojurescript/web/synonym.html
     ;
     (print (type cities) " , " (type terminals)" , " (type beams))
     (print (type (WorldWind/Layer.)) " , " (type WorldWind/Layer))
