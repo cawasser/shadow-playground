@@ -1,7 +1,8 @@
 (ns mapping.worldwind
   (:require [reagent.core :as r]
             ["worldwindjs" :as WorldWind]
-            ["worldwind-react-globe" :as Globe]))
+            ["../js/worldwind-react-globe.js" :as Globe]))
+            ;["worldwind-react-globe" :as Globe]))
 
 
 (def cities [{:name "Canberra" :lat -35.2809 :lon 149.13 :alt 100}
@@ -34,14 +35,15 @@
                 {:name "Boat Location 9", :lat 37.0, :lon 119.0, :atl 100}
                 {:name "Boat Location 3", :lat 28.0, :lon 123.0, :atl 100}])
 
-(def beam-coverage [{:name "BEAM-1" :lat 28.538336 :lon -81.379234 :diameter 1000000 :color (WorldWind/Color. 1 1 0 0.5)}
+(def beam-coverage [{:name "BEAM-1" :lat 28.538336 :lon -81.379234 :diameter 1000000 :color (WorldWind/Color. 0 1 0 0.5)}
                     {:name "BEAM-2" :lat 42.0989 :lon -25.09877 :diameter 500000 :color (WorldWind/Color. 1 0 1 0.5)}
                     {:name "BEAM-4" :lat -35.117275 :lon 147.356522 :diameter 750000 :color (WorldWind/Color. 0 0.3 1 0.5)}
-                    {:name "BEAM-5" :lat -5.04 :lon -5.04 :diameter 250000 :color (WorldWind/Color. 0.2 0.2 0.6 0.5)}])
+                    {:name "BEAM-5" :lat -5.04 :lon -5.04 :diameter 250000 :color (WorldWind/Color. 0.2 0.2 0.6 0.5)}
+                    {:name "BEAM-6" :lat 27.71 :lon 123.75 :diameter 750000 :color (WorldWind/Color. 1 1 1 0.5)}])
 
 
 
-(defn renderable-layer [title data color]
+(defn location-layer [title data color]
   (let [layer          (WorldWind/RenderableLayer. title)
         textAttributes (WorldWind/TextAttributes.)]
 
@@ -60,11 +62,11 @@
 
 
 (defn beam-layer [title data]
-  (let [layer      (WorldWind/RenderableLayer. title)]
+  (let [layer (WorldWind/RenderableLayer. title)]
     (doall (map (fn [d]
                   (let [attributes (WorldWind/ShapeAttributes.)
-                        point  (WorldWind/Location. (:lat d) (:lon d))
-                        circle (WorldWind/SurfaceCircle. point (:diameter d) attributes)]
+                        point      (WorldWind/Location. (:lat d) (:lon d))
+                        circle     (WorldWind/SurfaceCircle. point (:diameter d) attributes)]
 
                     (set! (.-interiorColor attributes) (get d :color (WorldWind/Color. 1 1 1 0.5)))
                     (set! (.-outlineColor attributes) (get d :color (WorldWind/Color. 1 1 1 0.5)))
@@ -77,14 +79,14 @@
 
 
 (defn globe []
-  (let [cities    (renderable-layer "Cities" cities (.-YELLOW WorldWind/Color))
-        terminals (renderable-layer "Terminals" terminals (.-WHITE WorldWind/Color))
+  (let [cities    (location-layer "Cities" cities (.-YELLOW WorldWind/Color))
+        terminals (location-layer "Terminals" terminals (.-WHITE WorldWind/Color))
         beams     (beam-layer "GDAs" beam-coverage)]
 
     ; trying to debug the "instanceof" failure in WorldWind
     ;    based on: https://kanaka.github.io/clojurescript/web/synonym.html
     ;
-    (print (type cities) " , " (type terminals)" , " (type beams))
+    (print (type cities) " , " (type terminals) " , " (type beams))
     (print (type (WorldWind/Layer.)) " , " (type WorldWind/Layer))
     (print (= (type cities) WorldWind/Layer) " , " (= (type terminals) WorldWind/Layer) " , " (= (type beams) WorldWind/Layer))
 
