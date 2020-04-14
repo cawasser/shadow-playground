@@ -1,5 +1,5 @@
 {
-   "name": "shadow-cjs-template",
+   "name": "shadow-playground",
    "version": "1.0.0",
    "description": "A simple template for my shadow-cljs experiments",
    "main": "index.js",
@@ -22,22 +22,31 @@
    "dependencies": {
       "@highcharts/map-collection": "^1.1.3",
       "@material-ui/core": "^3",
+      "@nasaworldwind/worldwind": "^0.9.0",
+      "@phuocng/react-pdf-viewer": "^1.4.0",
       "create-react-class": "^15.6.3",
       "css-layout": "^1.1.1",
       "highcharts": "^7.2.1",
+      "highcharts-more": "^0.1.7",
+      "highlight.js": "9.15.10",
       "minimist": "^1.2.5",
       "mobx": "^4.15.4",
       "mobx-react": "^5.4.4",
+      "pure-react-carousel": "^1.26.1",
       "react": "^16.7.0",
       "react-color": "^2.18.0",
       "react-dom": "^16.9.0",
+      "react-flip-move": "3.0.3",
       "react-gantt-timeline": "^0.4.3",
       "react-grid-layout": "^0.18.3",
       "react-highcharts": "^16.1.0",
+      "react-highlight.js": "1.0.7",
+      "react-markdown": "^4.3.1",
       "rhea": "^1.0.20",
       "shadow-cljs": "^2.8.94",
       "tailwindcss": "^1.1.4",
       "toastr": "^2.1.4",
-      "worldwind-react-globe": "^1.2.0"
+      "webpack": "^4.42.1",
+      "worldwindjs": "^1.7.0"
    }
 }
