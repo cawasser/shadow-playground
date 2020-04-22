@@ -1,4 +1,5 @@
-(ns data)
+(ns data
+  (:require [cljs-time.core :as t]))
 
 
 (def line-data
@@ -184,6 +185,15 @@
                  (rose-data* "Grapes" hours 200)
                  (rose-data* "Oranges" hours 200)
                  (rose-data* "Bananas" hours 200)]})
+
+
+(def timeline-data {:data  [{:id  1 :start (t/now)
+                             :end (t/plus (t/now) (t/months 1)) :name "Demo Task 1"}
+                            {:id  2 :start (t/plus (t/now) (t/months 1))
+                             :end (t/plus (t/now) (t/months 1) (t/weeks 2) (t/days 4) (t/hours 9)) :name "Demo Task 2"}]
+
+                    :links [{:id 1 :start 1 :end 2}
+                            {:id 2 :start 1 :end 3}]})
 
 
 (def md-data
