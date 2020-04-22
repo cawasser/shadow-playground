@@ -54526,6 +54526,20 @@ body {
     padding: 10px;
 }
 
+.widget-parent {
+        display: flex;
+        flex-flow:column;
+        height: 100%;
+        background: white;
+};
+
+.widget-banner {
+                flex: 0 1 auto;
+                background: pink};
+
+.widget-content {
+                 flex: 1 1 auto;
+                 background: green};
 
 .move-cursor {
     cursor:move;

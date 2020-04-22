@@ -36,8 +36,7 @@
 
 (defn make-timeline [data]
   [:div.time-line-container
-   [:> TimeLine (merge {:mode "year"}
-                  data/timeline-data)]])
+   [:> TimeLine (merge {:mode "year"} data/timeline-data)]])
 
 
 
@@ -54,7 +53,7 @@
              [{:x 0 :y 3 :w 4 :h 3}
               "Sankey" make-highchart data/sankey-data lavender white]
 
-             [{:x 4 :y 3 :w 4 :h 3}
+             [{:x 4 :y 6 :w 4 :h 3}
               "2D World" make-highmap mapping/world-map-data blue-gray white]
 
              [{:x 8 :y 3 :w 4 :h 3}
@@ -63,7 +62,7 @@
              [{:x 0 :y 6 :w 4 :h 3}
               "3D World" make-worldwind ww/data pale-yellow white]
 
-             [{:x 4 :y 6 :w 4 :h 3}
+             [{:x 4 :y 3 :w 4 :h 3}
               "Timeline" make-timeline data/timeline-data gray white]])
 
 (defn expand-layout [layout]
@@ -71,11 +70,12 @@
 
   (map (fn [[idx [pos title contentFn data banner-color title-color]]]
          ;(print "widget" title data)
-         (let [ret [:div {:key idx :data-grid pos}
+         (let [ret [:div {:key idx :data-grid pos
+                          :style {:width "100%" :height "100%"
+                                  :overflow :hidden}}
                     [basic-widget
                      title
-                     [:div {:style {:width "100%" :height "100%"}}
-                      (contentFn data)]
+                     (contentFn data)
                      {:viz/title             title
                       :viz/banner-color      banner-color
                       :viz/banner-text-color title-color}]]]
