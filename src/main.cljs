@@ -2,11 +2,7 @@
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
             [day8.re-frame.tracing :refer-macros [fn-traced defn-traced]]
-            ;[cljs-time.core :as t]
-            ;[data :as data]
             [picker :as p]
-            [basic-widget :refer [basic-widget]]
-
             ["@material-ui/core" :refer [Button]]
             ["react-highcharts/ReactHighmaps" :as ReactHighmaps]
             ["highcharts-more" :as HighchartsMore]
@@ -16,15 +12,11 @@
             ["react-highcharts" :as ReactHighcharts]
             ["toastr" :as toastr]
             ["react-grid-layout" :refer [Responsive WidthProvider]]
-            ;["react-gantt-timeline" :default TimeLine]
+            [widgets.default-layout :as layout]
 
-            [md-viewer :as md]
-
-            ;[mapping.highcharts-mapping :as mapping]
-            ;[mapping.worldwind :as ww]
-            [carousel :as carousel]
-
-            [widgets.default-layout :as layout]))
+            ["react-gantt-timeline" :default TimeLine]
+            [cljs-time.core :as t]
+            [basic-widget :refer [basic-widget]]))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -81,9 +73,9 @@
 (def picker? (r/atom false))
 
 (defn main-component []
-  (print "main-component")
-  (print "layout" layout/layout)
-  (print "expanded layout" (layout/expand-layout layout/layout))
+  ;(print "main-component")
+  ;(print "layout" layout/layout)
+  ;(print "expanded layout" (layout/expand-layout layout/layout))
   (fn []
     [:div
      [:h1.title "Shadow-Playground"]
@@ -100,27 +92,25 @@
       [:> (WidthProvider Responsive)
        {:className   "layout"
         :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
-        :cols=       {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
-
+        :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
 
        (layout/expand-layout layout/layout)]]]))
 
        ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
        ;
-       ; CAROUSEL with:
-       ;     Heatmap
-       ;     2D World Map (Highmaps)
-       ;     2D Australia Map (Highmaps)
+       ; stand-alone GANTT CHART / TIMELINE
        ;
-       ;[:div {:key "9" :data-grid {:x 8 :y 6 :w 4 :h 3}}
+       ;[:div {:key "8" :data-grid {:x 0 :y 0 :w 4 :h 3}}
        ; [basic-widget
-       ;  "carousel"
-       ;  [carousel/carousel [[:> ReactHighcharts {:config data/heatmap-data}]
-       ;                      [:> ReactHighmaps {:config mapping/world-map-data}]
-       ;                      [:> ReactHighmaps {:config mapping/aus-map-data}]]]
-       ;  {:viz/title             "Carousel"
-       ;   :viz/banner-color      {:r 255 :g 0 :b 0 :a 1}
-       ;   :viz/banner-text-color white}]]]]]))
+       ;  "timeline"
+       ;  [:> TimeLine (merge {:mode "year"}
+       ;                 data/timeline-data)]
+       ;  {:viz/title             "Timeline"
+       ;   :viz/banner-color      {:r 150 :g 150 :b 150 :a 1}
+       ;   :viz/banner-text-color {:r 255 :g 255 :b 255 :a 1}}]]]]]))
+
+
+
 
 (defn mount [c]
   (r/render-component [c] (.getElementById js/document "app")))

@@ -9,7 +9,9 @@
             ["react-gantt-timeline" :default TimeLine]
             [data :as data]
             [mapping.highcharts-mapping :as mapping]
-            [mapping.worldwind :as ww]))
+            [mapping.worldwind :as ww]
+            [md-viewer :as md]
+            [carousel :as carousel]))
 
 
 
@@ -23,30 +25,68 @@
 (def gray {:r 150 :g 150 :b 150 :a 1})
 
 
+(defn make-highchart [data]
+  [:> ReactHighcharts {:config data}])
+
+(defn make-highmap [data]
+  [:> ReactHighmaps {:config data}])
+
+(defn make-worldwind [data]
+  [ww/globe])
+
+(defn make-timeline [data]
+  [:div.time-line-container
+   [:> TimeLine (merge {:mode "year"}
+                  data/timeline-data)]])
+
+
+
 (def layout [
              [{:x 0 :y 0 :w 4 :h 3}
-              "Heatmap" ReactHighcharts data/heatmap-data blue white]
+              "Heatmap" make-highchart data/heatmap-data blue white]
 
-             ;[{:x 4 :y 0 :w 4 :h 3}
-             ; "Spectrum (testing)" ReactHighcharts data/line-data green black]
-             ;
-             ;[{:x 8 :y 0 :w 4 :h 3}
-             ; "Dep-wheel" ReactHighcharts data/depwheel-data blue white]
-             ;
-             ;[{:x 0 :y 3 :w 4 :h 3}
-             ; "Sankey" ReactHighcharts data/sankey-data lavender white]
-             ;
+             [{:x 4 :y 0 :w 4 :h 3}
+              "Spectrum (testing)" make-highchart data/line-data green black]
+
+             [{:x 8 :y 0 :w 4 :h 3}
+              "Dep-wheel" make-highchart data/depwheel-data blue white]
+
+             [{:x 0 :y 3 :w 4 :h 3}
+              "Sankey" make-highchart data/sankey-data lavender white]
+
              [{:x 4 :y 3 :w 4 :h 3}
-              "2D World" ReactHighmaps mapping/world-map-data blue-gray white]])
+              "2D World" make-highmap mapping/world-map-data blue-gray white]
 
-             ;[{:x 8 :y 3 :w 4 :h 3}
-             ; "Rose" ReactHighcharts data/rose-data pale-yellow white]
-             ;
-             ;[{:x 0 :y 6 :w 4 :h 3}
-             ; "3D World" ww/globe ww/data pale-yellow white]
-             ;
-             ;[{:x 4 :y 6 :w 4 :h 3}
-             ; "Timeline" TimeLine data/timeline-data gray white]])
+             [{:x 8 :y 3 :w 4 :h 3}
+              "Rose" make-highchart data/rose-data pale-yellow white]
+
+             [{:x 0 :y 6 :w 4 :h 3}
+              "3D World" make-worldwind ww/data pale-yellow white]
+
+             [{:x 4 :y 6 :w 4 :h 3}
+              "Timeline" make-timeline data/timeline-data gray white]])
+
+(defn expand-layout [layout]
+  ;(print "map-indexed" (map-indexed vector layout))
+
+  (map (fn [[idx [pos title contentFn data banner-color title-color]]]
+         ;(print "widget" title data)
+         (let [ret [:div {:key idx :data-grid pos}
+                    [basic-widget
+                     title
+                     [:div {:style {:width "100%" :height "100%"}}
+                      (contentFn data)]
+                     {:viz/title             title
+                      :viz/banner-color      banner-color
+                      :viz/banner-text-color title-color}]]]
+           ;(print ret)
+           ret))
+    (map-indexed vector layout)))
+
+
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -74,16 +114,3 @@
 
 
 
-(defn expand-layout [layout]
-  (print "map-indexed" (map-indexed vector layout))
-
-  (map (fn [[idx [pos title content data banner-color title-color]]]
-         ;(print "widget" pos))
-         [:div {:key idx :data-grid pos}
-          [basic-widget
-           title
-           [:> content {:config data}]
-           {:viz/title             title
-            :viz/banner-color      banner-color
-            :viz/banner-text-color title-color}]])
-    (map-indexed vector layout)))

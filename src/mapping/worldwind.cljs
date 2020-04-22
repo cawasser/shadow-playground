@@ -76,19 +76,13 @@
     layer))
 
 
+(def data {}) ; just here for consistency, the layers are built inside the globe
 
 
 (defn globe []
   (let [cities    (location-layer "Cities" cities (.-YELLOW WorldWind/Color))
         terminals (location-layer "Terminals" terminals (.-WHITE WorldWind/Color))
         beams     (beam-layer "GDAs" beam-coverage)]
-
-    ; trying to debug the "instanceof" failure in WorldWind
-    ;    based on: https://kanaka.github.io/clojurescript/web/synonym.html
-    ;
-    (print (type cities) " , " (type terminals) " , " (type beams))
-    (print (type (WorldWind/Layer.)) " , " (type WorldWind/Layer))
-    (print (= (type cities) WorldWind/Layer) " , " (= (type terminals) WorldWind/Layer) " , " (= (type beams) WorldWind/Layer))
 
     [:> Globe {:layers    ["blue-marble"
                            cities
