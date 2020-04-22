@@ -54504,3 +54504,33 @@ video {
     z-index: auto;
   }
 }
+
+
+body {
+    background-image: url("/images/grey_wash_wall.png");
+    background-color: #2F4F4F;
+}
+
+/* Simple text widget styles */
+/* TODO move to dashboard codebase */
+
+.widget {
+  background-image: linear-gradient(to top, rgb(16, 16, 16), rgb(96, 96, 96) );
+  display: flex;
+}
+
+.widget .title-wrapper {
+    width: 100%;
+}
+.widget .title-wrapper .title {
+    padding: 10px;
+}
+
+
+.move-cursor {
+    cursor:move;
+}
+
+.menu-cursor {
+    cursor:context-menu;
+}

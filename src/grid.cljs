@@ -28,10 +28,11 @@
 
 
 (defn widget-wrapper [w]
-  (print "widget-wrapper " w)
+  (prn "widget-wrapper " w)
 
-  (let [ret [:div {:data-grid (:data-grid w)
-                   :key (:key w)}
+  (let [ret [:div#wrapper {:data-grid (:data-grid w)
+                           :key (:key w)
+                           :style {:display :flex}}
              w]]
 
     (print "wrapped " ret)
@@ -41,10 +42,7 @@
 (defn grid
   [{:keys [id content width row-height cols breakpoints item-props on-change empty-text] :as args}]
 
-  (print (mapv (fn [x] [:div {:key (:key x)
-                              :class "widget"}
-                        x])
-           content))
+  (print "setup grid")
 
   [:div.grid-container
    (into [:> ReactGridLayout/Responsive {:id              id
