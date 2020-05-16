@@ -197,8 +197,13 @@
 
 
 (def md-data
-  "# Live demo
-Changes are automatically rendered as you type.
+  "# Markdown Demo
+
+> Note: [Bulma.io](https://bulma.io) causes some rendering issues, especially with Header styles. Bulma makes the plan
+> 'h_' tags very plain and expects the use of modifiers, like className='title', to put the styling back.
+>
+> If you disable the bulma.css file in 'index.html' you'll see the Markdown rendered correctly, but everything else will be
+> wanged (widget titles, close button, etc.)
 
 ## Table of Contents
 
@@ -210,4 +215,97 @@ Changes are automatically rendered as you type.
 ## HTML block below
 <blockquote>
    This blockquote will change based on the HTML settings above.
-</blockquote>")
+</blockquote>
+
+## How about some code?
+```js
+var React = require('react');
+var Markdown = require('react-markdown');
+
+React.render(  <Markdown source=\"# Your markdown here\" />,
+  document.getElementById('content')
+  );
+  ```
+
+# Shadow-Playground
+
+A simple template for my shadow-cljs experiments with React components in Clojurescript/Reagent
+
+
+## Outline
+
+* [Setup Your Build Toolchain](#setup-your-build-toolchain)
+* [Configure the Project in Cursive](#configure-the-project-in-cursive)
+* [Developing the App](#developing-the-app)
+* [Shadow-cljs Differences From Leiningen](#shadow-cljs-differences-from-leiningen)
+* [References](#references)
+
+
+## Setup Your Build Toolchain
+
+This project uses [shadow-cljs](http://shadow-cljs.org/) as the build tooling. shadow-cljs leverages the Node.js
+package manager [\"npm\"](https://www.npmjs.com/) to make integrating Javascript libraries much easier when using Clojurescript.
+
+This means that both npm and shadow-cljs must be installed.
+
+### Installing NPM
+
+For MacOS, use:
+
+    brew install npm
+
+For Windows, follow the instructions at [https://www.npmjs.com/get-npm](https://www.npmjs.com/get-npm).
+
+> This will direct you to install nodejs via [https://nodejs.org/en/](https://nodejs.org/en/). You might just want to go there first
+> and then go back to the npmjs page
+
+
+### Installing shadow-cljs
+
+Once nodejs and npm are installed, run:
+    npm install -g shadow-cljs
+
+
+## References
+
+### Shadow-cljs and using npm:
+https://www.freecodecamp.org/news/why-clojurescript-works-so-well-with-npm-128221d302ba/
+https://github.com/shadow-cljs/shadow-cljs.github.io
+
+### Reagent:
+https://holmsand.github.io/reagent/
+https://github.com/reagent-project/reagent
+
+## Grid:
+https://github.com/strml/react-grid-layout
+
+### ReactHighcharts:
+https://github.com/kirjs/react-highcharts
+http://kirjs.github.io/react-highcharts/index.html
+http://kirjs.github.io/react-highcharts/highmaps.html
+http://kirjs.github.io/react-highcharts/more.html
+
+### Highmaps:
+https://www.highcharts.com/docs/maps/map-collection
+http://kirjs.github.io/react-highcharts/highmaps.html
+
+### Accessing extended Highcharts types:
+https://github.com/whawker/react-jsx-highcharts/releases/tag/v3.6.0
+
+### CompactPicker (color picker):
+http://casesandberg.github.io/react-color/
+
+### TimeLine (Gantt):
+https://github.com/guiqui/react-timeline-gantt
+https://codesandbox.io/s/3x8nl16p65
+
+### cljs-time:
+https://github.com/andrewmcveigh/cljs-time
+http://www.andrewmcveigh.com/cljs-time/latest/index.html
+
+### Carousel
+https://github.com/express-labs/pure-react-carousel
+
+### Markdown
+https://github.com/rexxars/react-markdown
+")

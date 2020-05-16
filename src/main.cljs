@@ -16,7 +16,9 @@
 
             ["react-gantt-timeline" :default TimeLine]
             [cljs-time.core :as t]
-            [basic-widget :refer [basic-widget]]))
+            [basic-widget :refer [basic-widget]]
+            [grid]))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -89,25 +91,35 @@
      [p/picker picker?]
 
      [:div
-      [:> (WidthProvider Responsive)
-       {:className   "layout"
+      ;[:> (WidthProvider Responsive)
+      ; {:className   "layout"
+      ;  :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
+      ;  :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
+      ;
+      ; (layout/expand-layout layout/layout)]
+
+      [grid/grid
+       {:id          "grid"
+        :content     (layout/expand-layout layout/layout)
+        :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}
         :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
-        :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
+        :className   "layout"
+        :on-change #()}]]]))
 
-       (layout/expand-layout layout/layout)]]]))
 
-       ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-       ;
-       ; stand-alone GANTT CHART / TIMELINE
-       ;
-       ;[:div {:key "8" :data-grid {:x 0 :y 0 :w 4 :h 3}}
-       ; [basic-widget
-       ;  "timeline"
-       ;  [:> TimeLine (merge {:mode "year"}
-       ;                 data/timeline-data)]
-       ;  {:viz/title             "Timeline"
-       ;   :viz/banner-color      {:r 150 :g 150 :b 150 :a 1}
-       ;   :viz/banner-text-color {:r 255 :g 255 :b 255 :a 1}}]]]]]))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; stand-alone GANTT CHART / TIMELINE
+;
+;[:div {:key "8" :data-grid {:x 0 :y 0 :w 4 :h 3}}
+; [basic-widget
+;  "timeline"
+;  [:> TimeLine (merge {:mode "year"}
+;                 data/timeline-data)]
+;  {:viz/title             "Timeline"
+;   :viz/banner-color      {:r 150 :g 150 :b 150 :a 1}
+;   :viz/banner-text-color {:r 255 :g 255 :b 255 :a 1}}]]]]]))
 
 
 

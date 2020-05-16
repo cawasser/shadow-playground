@@ -27,7 +27,8 @@
    [:div.container.widget-parent {:style {:width "100%" :height "100%"}}
     (title-bar options)
 
-    [:div.widget-content {;:style {:width "100%" :height "100%"} ;:display :flex}
+    [:div.widget-content {:style {:width "100%" :height :auto :overflow :auto}
+
                           :on-mouse-down #(.stopPropagation %)}
      custom-content]])
 

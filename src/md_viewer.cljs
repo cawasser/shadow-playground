@@ -1,6 +1,5 @@
 (ns md-viewer
-  (:require ["react-markdown" :as ReactMarkdown]
-            [macros.slurp :refer (slurp)]))
+  (:require ["react-markdown" :as ReactMarkdown]))
 
 
 ;;;;;;;;;;;;;;;;;;;;
@@ -22,18 +21,11 @@
 
 
 
-(defn viewer [{:keys [raw-data file]}]
-  (if raw-data
-    (print "raw " raw-data))
-  (print "file " file)
-  [:div
-   [:> ReactMarkdown {:source raw-data
-                      :htmlMode "raw"}]])
-    ;[:> ReactMarkdown {:source (slurp file)}]))
+(defn viewer [data]
+  ;[:div
+     [:> ReactMarkdown {:style {:overflow :auto
+                                :height :auto}
+                        :source data
+                        :escapeHtml false}])
 
 
-
-; const ReactMarkdown = require('react-markdown')
-; const input = '# This is a header\n\nAnd this is a paragraph'
-;
-; ReactDOM.render(<ReactMarkdown source={input} />, document.getElementById('container'))

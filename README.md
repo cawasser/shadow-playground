@@ -123,3 +123,6 @@ http://www.andrewmcveigh.com/cljs-time/latest/index.html
 ### Carousel
 https://github.com/express-labs/pure-react-carousel
 
+### Markdown
+https://github.com/rexxars/react-markdown
+

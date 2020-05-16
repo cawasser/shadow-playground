@@ -12,23 +12,22 @@
 
 (defn carousel [contents]
 
-  [:div {:style {:width "650px" :height "450px"}}
-   [:> CarouselProvider {:naturalSlideWidth 650
-                         :naturalSlideHeight 400
+  [:div {:style {:width "100%" :height "100%"}}
+   [:> CarouselProvider {:naturalSlideWidth 640
+                         :naturalSlideHeight 410
                          :totalSlides (count contents)
                          :dragEnabled false}
-    [:> Slider {:class "slider"
-                :style {:width "650px" :height "380px"}}
+    [:> Slider {:class "slider" :style {:width "100%" :height "100%"}}
      (for [[idx c] (map-indexed vector contents)]
        ^{:key idx} [:> Slide {:key idx :index idx} c])]
 
-    [:> ButtonFirst {:class "button is-small"} "First"]
-    [:> ButtonBack {:class "button is-small"} "Back"]
-    [:> ButtonNext {:class "button is-small"} "Next"]
-    [:> ButtonLast {:class "button is-small"} "Last"]
+    ;[:> ButtonFirst {:class "button is-small"} "First"]
+    ;[:> ButtonBack {:class "button is-small"} "Back"]
+    ;[:> ButtonNext {:class "button is-small"} "Next"]
+    ;[:> ButtonLast {:class "button is-small"} "Last"]
 
-    [:div
-     (for [[idx c] (map-indexed vector contents)]
+    [:div {:style {:display :flex :justify-content :center :align-items :center}}
+     (for [[idx _] (map-indexed vector contents)]
        ^{:key idx} [:> Dot {:class "button is-small" :slide idx}])]]])
 
 

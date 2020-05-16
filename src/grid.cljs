@@ -1,5 +1,5 @@
 (ns grid
-  (:require ["react-grid-layout" :as ReactGridLayout]))
+  (:require ["react-grid-layout" :refer [Responsive WidthProvider]]))
 
 
 
@@ -27,16 +27,7 @@
     (on-change prev (js->clj new :keywordize-keys true))))
 
 
-(defn widget-wrapper [w]
-  (prn "widget-wrapper " w)
-
-  (let [ret [:div#wrapper {:data-grid (:data-grid w)
-                           :key (:key w)
-                           :style {:display :flex}}
-             w]]
-
-    (print "wrapped " ret)
-    ret))
+(defn widget-wrapper [w] w)
 
 
 (defn grid
@@ -45,15 +36,15 @@
   (print "setup grid")
 
   [:div.grid-container
-   (into [:> ReactGridLayout/Responsive {:id              id
-                                         :class           "layout"
+   (into [:> (WidthProvider Responsive) {:id              id
+                                         :className       "layout"
                                          :cols            cols
-                                         :width           width
-                                         :rowHeight       row-height
-                                         :isDraggable     true
-                                         :isResizable     true
-                                         :draggableHandle ".grid-toolbar"
-                                         :draggableCancel ".grid-content"
+                                         ;:width           width
+                                         ;:rowHeight       row-height
+                                         ;:isDraggable     true
+                                         ;:isResizable     true
+                                         ;:draggableHandle ".grid-toolbar"
+                                         ;:draggableCancel ".grid-content"
                                          :breakpoints     breakpoints
                                          :onLayoutChange  (partial onLayoutChange on-change content)}]
      (mapv #(widget-wrapper %) content))])
