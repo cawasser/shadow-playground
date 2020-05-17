@@ -33,7 +33,7 @@
 (defn grid
   [{:keys [id content width row-height cols breakpoints item-props on-change empty-text] :as args}]
 
-  (print "setup grid")
+  (print "setup grid" (count content))
 
   [:div.grid-container
    (into [:> (WidthProvider Responsive) {:id              id
@@ -47,7 +47,7 @@
                                          ;:draggableCancel ".grid-content"
                                          :breakpoints     breakpoints
                                          :onLayoutChange  (partial onLayoutChange on-change content)}]
-     (mapv #(widget-wrapper %) content))])
+     content)])
 
 
 

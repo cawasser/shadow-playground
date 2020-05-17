@@ -17,7 +17,8 @@
             ["react-gantt-timeline" :default TimeLine]
             [cljs-time.core :as t]
             [basic-widget :refer [basic-widget]]
-            [grid]))
+            [grid]
+            [widgets.default-layout :as dl]))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -78,33 +79,40 @@
   ;(print "main-component")
   ;(print "layout" layout/layout)
   ;(print "expanded layout" (layout/expand-layout layout/layout))
-  (fn []
-    [:div
-     [:h1.title "Shadow-Playground"]
-     [:> Button {:variant  "contained"
-                 :color    "primary"
-                 :on-click #(toastr/success "Toast!")} "Toast!"]
-     [:> Button {:variant  "contained"
-                 :color    "secondary"
-                 :on-click #(swap! picker? not)} "Picker!"]
 
-     [p/picker picker?]
+  (let [layout dl/layout]
+    (fn []
+      [:div
+       [:h1.title "Shadow-Playground"]
+       [:> Button {:variant  "contained"
+                   :color    "primary"
+                   :on-click #(toastr/success "Toast!")} "Toast!"]
+       [:> Button {:variant  "contained"
+                   :color    "secondary"
+                   :on-click #(swap! picker? not)} "Picker!"]
+       [:> Button {:variant  "contained"
+                   :on-click #(dl/add-widget)} "+"]
+       [:> Button {:variant  "contained"
+                   :on-click #(dl/remove-widget)} "-"]
 
-     [:div
-      ;[:> (WidthProvider Responsive)
-      ; {:className   "layout"
-      ;  :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
-      ;  :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
-      ;
-      ; (layout/expand-layout layout/layout)]
 
-      [grid/grid
-       {:id          "grid"
-        :content     (layout/expand-layout layout/layout)
-        :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}
-        :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
-        :className   "layout"
-        :on-change #()}]]]))
+       [p/picker picker?]
+
+       [:div
+        ;[:> (WidthProvider Responsive)
+        ; {:className   "layout"
+        ;  :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
+        ;  :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}}
+        ;
+        ; (layout/expand-layout layout/layout)]
+
+        [grid/grid
+         {:id          "grid"
+          :content     @layout
+          :cols        {:lg 12, :md 10, :sm 6, :xs 4, :xxs 2}
+          :breakpoints {:lg 1200, :md 996, :sm 768, :xs 480, :xxs 0}
+          :className   "layout"
+          :on-change #()}]]])))
 
 
 
