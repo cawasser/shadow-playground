@@ -15,6 +15,8 @@
 
  :dev-http {8080 "target/"}
 
+ :nrepl        {:port 7000}
+
  :builds {:app {:output-dir "target/"
                 :asset-path "."
                 :target :browser
