@@ -26,7 +26,7 @@
       "@phuocng/react-pdf-viewer": "^1.4.0",
       "create-react-class": "^15.6.3",
       "css-layout": "^1.1.1",
-      "highcharts": "^7.2.1",
+      "highcharts": "^7.2.2",
       "highcharts-more": "^0.1.7",
       "highlight.js": "9.15.10",
       "minimist": "^1.2.5",
