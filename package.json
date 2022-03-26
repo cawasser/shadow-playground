@@ -29,7 +29,7 @@
       "highcharts": "^7.2.1",
       "highcharts-more": "^0.1.7",
       "highlight.js": "9.15.10",
-      "minimist": "^1.2.5",
+      "minimist": "^1.2.6",
       "mobx": "^4.15.4",
       "mobx-react": "^5.4.4",
       "pure-react-carousel": "^1.26.1",
